@@ -211,4 +211,8 @@ public final class CustomerController {
     }
   }
 
+  public static SearchResult<Customer> getAll() throws RecordSearchException {
+    return createResult(CustomerTable.getInstance().read());
+  }
+
 }

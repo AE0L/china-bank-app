@@ -3,6 +3,23 @@ const type  = e('type')
 const size  = e('result-size')
 const table = e('tbody-result')
 
+function listAllRecords() {
+    if ('_controller' in window) {
+        _controller({
+            request: jsontostring({
+                controller: 'customer',
+                method: {
+                    type: 'list-all'
+                }
+            }),
+
+            onSuccess: (res) => {
+                loadData(jsonparse(res))
+            }
+        })
+    }
+}
+
 form.onsubmit = (evt) => {
     evt.preventDefault()
 

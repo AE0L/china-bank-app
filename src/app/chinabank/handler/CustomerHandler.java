@@ -55,6 +55,12 @@ final class CustomerHandler {
         return true;
       }
 
+      case "list-all": {
+        callback.success(CustomerController.getAll().toJSON());
+
+        return true;
+      }
+
       default: {
         throw new Exception("invalid customer controller method");
       }

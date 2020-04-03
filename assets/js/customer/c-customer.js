@@ -104,12 +104,14 @@ form.onsubmit = (evt) => {
         ['ver-gmi',          customer.gmi],
         ['ver-emp-industry', customer.empindustry],
         ['ver-emp-name',     customer.empname],
-        ['ver-emp-position', customer.emppostion],
+        ['ver-emp-position', customer.empposition],
         ['ver-emp-contact',  customer.empcontact],
         ['ver-emp-add',      customer.empadd],
         ['ver-residency',    customer.residency],
         ['ver-mail-add',     customer.mailing],
     ]
+
+    console.log(customer.empposition)
 
     main_body.classList.add('noscroll')
     modal.classList.remove('hidden')
@@ -155,4 +157,3 @@ function closeErrorModal() {
     style_hide(e('error-modal'))
     style_scroll(main_body)
 }
-

@@ -104,7 +104,7 @@ form.onsubmit = (evt) => {
         ['ver-gmi',          customer.gmi],
         ['ver-emp-industry', customer.empindustry],
         ['ver-emp-name',     customer.empname],
-        ['ver-emp-position', customer.emppostion],
+        ['ver-emp-position', customer.empposition],
         ['ver-emp-contact',  customer.empcontact],
         ['ver-emp-add',      customer.empadd],
         ['ver-residency',    customer.residency],
@@ -162,8 +162,6 @@ ver_cancel.onclick = () => {
 
 window.onload = () => {
     const id = new URLSearchParams(location.search).get('id')
-
-    console.log(id)
 
     const req = {
         controller: 'customer',
