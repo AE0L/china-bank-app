@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>transaction-info-view</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+    <link href=../css/p-transaction.css rel=stylesheet>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn nav-btn-active fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+        <a onclick="historyBack()" class=return-btn>
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      </h2>
+      
+      <h1>Transaction Information</h1>
+      
+      <div><!-- SPACE --></div>
+
+      <div class=transaction-wrapper>
+        <div class="transaction card">
+          <div class=transaction__id-wrapper>
+            <i class="fas fa-receipt"></i>
+            <label id=t-id></label>
+          </div>
+
+          <label class=transaction__date id=t-date></label>
+
+          <div class=transaction__dir-wrapper>
+            <label class=transaction__account id=t-account></label>
+            <div class=dir__wrapper>
+              <i id=t-dir class="fas"></i>
+              <label class=transaction__type id=t-type></label>
+            </div>
+            <label class=transaction__customer id=t-customer></label>
+          </div>
+
+          <label id=t-amount class=transaction__amount></label>
+        </div>
+
+        <div id=payment class="payment card hidden">
+          <h2 class=payment__title>Payment Details</h2>
+          <label class=payment__business id=business-name></label>
+
+          <label class=payment__label>Reference Number</label>
+          <label class=payment__reference id=reference-no></label>
+
+          <label class=payment__label>Payment Mode</label>
+          <label class=payment__mode id=p-mode></label>
+        </div>
+
+        <div id='local-cash' class="local-cash hidden card">
+          <h2 class=local__title>Local Currency Cash Breakdown</h2>
+          <table class=form__table>
+            <tbody>
+              <tr class=form__table_header>
+                <th class=form__table_th>Denomination</th>
+                <th class=form__table_th>Pieces</th>
+                <th class=form__table_th>Amount</th>
+              </tr>
+            </tbody>
+            <tbody id=local-cash-table></tbody>
+          </table>
+        </div>
+
+        <div id=foreign-cash class="foreign-cash card hidden">
+          <h2 class=foreign__title>Foreign Currency Cash Breakdown</h2>
+          <table class=form__table>
+            <tbody>
+              <tr class=form__table_header>
+                <th class=form__table_th>Serial Number</th>
+                <th class=form__table_th>Denomination</th>
+              </tr>
+            </tbody>
+            <tbody id=foreign-cash-table></tbody>
+          </table>
+        </div>
+
+        <div id=check-details class="check-details hidden card">
+          <h2 class=check__title>Check Details</h2>
+          <table class=form__table>
+            <tbody>
+              <tr class=form__table_header>
+                <th class=form__table_th>Bank/Branch</th>
+                <th class=form__table_th>Check Number</th>
+                <th class=form__table_th>Check Amount</th>
+              </tr>
+            </tbody>
+            <tbody id=check-details-table></tbody>
+          </table>
+        </div>
+
+        <div id=debit class="card debit hidden">
+          <h2 class=debit__title>Debit Account</h2>
+          <div class=account__no-wrapper>
+            <i class="fas fa-piggy-bank"></i>
+            <label id=account-no></label>
+          </div>
+
+          <label class=account__product id=product-type></label>
+          <label class=account__type id=account-type></label>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/transactions/p-transactions.js></script>
+  </body>
+</html>

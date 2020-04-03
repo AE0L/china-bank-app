@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>transactions-new</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+    <link href=../css/transact-forms.css rel=stylesheet>
+  </head>
+  <body id=main-body class="custom-scrollbar">
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn nav-btn-active fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+      <a onclick="historyBack()" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      
+      <h1 id=page-title>New Transaction</h1>
+      <div><!-- SPACE --></div>
+      
+      <div class=forms-cont>
+        <div id=forms-side-nav class=forms-side-nav>
+          <div class=forms-nav-cont>
+            <div id=deposit class=forms-nav>Deposit</div>
+            <div id=withdraw class=forms-nav>Withdraw</div>
+            <div id=check-dep class=forms-nav>Check</div>
+            <div id=payment class=forms-nav>Payment</div>
+          </div>
+        </div>
+        <div class=selected-form-wrapper>
+          <div class=selected-form>
+            <h2 id=form-title></h2>
+            <div id=form-insert></div>
+          </div>
+        </div>
+      </div>
+      <div id=error-modal class="custom-scrollbar modal hidden">
+        <div class="modal__content-error">
+          <h2 class=form__section-title>Error saving transaction details</h2>
+          <p class=modal__error-text id=error-text></p>
+          <button style="justify-self: right;" class=modal__button type=button onclick="closeErrorModal()">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/transactions/transaction.js></script>
+    <script src=../js/transactions/transact-global.js></script>
+    <script src=../js/transactions/cash-forms.js></script>
+    <script src=../js/transactions/deposit-form.js></script>
+    <script src=../js/transactions/withdraw-form.js></script>
+    <script src=../js/transactions/check-form.js></script>
+    <script src=../js/transactions/payment-form.js></script>
+    <script src=../js/transactions/transact-forms.js></script>
+  </body>
+</html>

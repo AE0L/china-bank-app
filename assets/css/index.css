@@ -1,0 +1,39 @@
+/* Override "body" class */
+.body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Chinabank Background Logo */
+.chinabank-cont {
+  align-self: center;
+  color: rgba(255, 255, 255, 0.25);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-self: center;
+}
+
+#index-logo {
+  align-self: center;
+  opacity: 0.25;
+}
+
+#index-title-cont {
+  display: grid;
+  grid-row-gap: 0.5em;
+}
+
+h2, h1 { margin: 0; }
+
+#index-title-cont h2 {
+  align-self: start;
+  font-size: 1.25em;
+}
+
+#index-title-cont h1 {
+  align-self: end;
+  font-family: 'Verdana', 'Arial', sans-serif;
+  font-size: 2.5em;
+}

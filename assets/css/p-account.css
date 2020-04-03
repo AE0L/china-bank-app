@@ -1,0 +1,133 @@
+.body {
+  width: -webkit-fill-available;
+}
+
+.card {
+  background: var(--color-elevate-2);
+  box-shadow: var(--shadow-2);
+  margin: 0.75em 0.5em;
+  padding: 1.5em;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.account {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 1em;
+}
+
+.account__no-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 0.75em;
+  align-items: center;
+}
+
+.account__currency {
+  grid-column: 2/3;
+  grid-row: 2/4;
+  font-size: 3em;
+  align-self: center;
+  text-align: right;
+  color: var(--color-primary);
+}
+
+.account__no-wrapper,
+.account__date {
+  color: var(--color-aa-text);
+}
+
+
+.account__product {
+  font-size: 2em;
+  margin: 0.5em 0 0.1em 0;
+  color: var(--color-primary);
+}
+
+.account__type {
+  font-size: 1.25em;
+  margin: 0.25em 0 0.5em 0;
+  font-weight: bold;
+}
+
+.account__label {
+  color: var(--color-aa-text);
+  text-align: right;
+}
+
+.account__soa-wrapper {
+  margin: 0.5em 0 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1em;
+}
+
+
+.business__name {
+  font-size: 2em;
+  color: var(--color-primary);
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.contact__title {
+  grid-column: 1/3;
+  color: var(--color-aa-text);
+}
+
+
+.holder__title {
+  margin: 2.5em 0 0.25em 1em;
+}
+
+.holder-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.holder__entry-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 0.5em;
+  cursor: pointer;
+  transition: background 0.15s ease-out;
+  flex: 0 1 25%;
+}
+
+.holder__entry-wrapper > * {
+  cursor: pointer;
+}
+
+.holder__entry-wrapper:hover {
+  background: var(--color-elevate-3);
+}
+
+.holder__entry-wrapper:active {
+  background: var(--color-elevate-1);
+}
+
+.holder__name,
+.holder__nation {
+  grid-column: 1/3;
+}
+
+.holder__name {
+  font-size: 1.5em;
+  color: var(--color-primary);
+}
+
+.holder__nation {
+  font-size: 1.1em;
+  margin-bottom: 0.75em;
+}

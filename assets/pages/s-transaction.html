@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>customer-info-search</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/search.css rel=stylesheet>
+  </head>
+  <body id=main-body class="custom-scrollbar">
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn nav-btn-active fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+      <a onclick="redirect('index.html')" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      <h1>Search Transaction Information</h1>
+      <div><!-- SPACE --></div>
+      <div class=search-cont>
+        <form id=search-form autocomplete="off" spellcheck=false>
+          <select class=form__input-select id=type name=type>
+            <option class=form__input-select_option value=transaction-id>Transaction ID</option>
+            <option class=form__input-select_option value=account-no>Account Number</option>
+            <option class=form__input-select_option value=customer-name>Customer Name</option>
+            <option class=form__input-select_option value=transaction-date>Transaction Date</option>
+          </select>
+          <input class=form__input-text autofocus id=query type=text name=query placeholder="Transaction ID">
+          <input class="form__input-text hidden" autofocus id=date-query type=date name=date disabled>
+          <div id=customer-wrapper class="col-3 col-05-gap hidden">
+            <input disabled class=form__input-text id=customer-last type=text name=last placeholder=Last>
+            <input disabled class=form__input-text id=customer-first type=text name=first placeholder=First>
+            <input disabled class=form__input-text id=customer-middle type=text name=middle placeholder=Middle>
+          </div>
+          
+          <button class="form__button form__button-primary search__button" type=submit class=primary-btn>
+          Search
+          </button>
+          <button class="form__button form__button-secondary list__button" type=button onclick="listAllRecords()">
+          List All
+          </button>
+        </form>
+      </div>
+      <div><!-- SPACE --></div>
+      <div id=result-size>
+      </div>
+      <div><!-- SPACE --></div>
+      <div class=table-cont>
+        <table>
+          <tbody>
+            <tr id=header class=col-header>
+              <th id=no>Transaction ID</th>
+              <th id=type>Transaction Type</th>
+              <th id=total-amount>Total Amount</th>
+              <th id=customer-name>Customer Name</th>
+              <th id=account-no>Account No</th>
+              <th id=transaction-date>Transaction Date</th>
+            </tr>
+          </tbody>
+          <tbody id=tbody-result>
+          </tbody>
+        </table>
+      </div>
+      <div><!-- SPACE --></div>
+      <div class=result-end>
+        End of result
+      </div>
+      <div id=error-modal class="custom-scrollbar modal hidden">
+        <div class="modal__content-error">
+          <h2 class=form__section-title>Error getting transaction records</h2>
+          <p class=modal__error-text id=error-text></p>
+          <button style="justify-self: right;" class=modal__button type=button onclick="closeErrorModal()">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/transactions/s-transaction.js></script>
+  </body>
+</html>

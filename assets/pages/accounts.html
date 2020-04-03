@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>account-opening</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+    <!-- <link href=../css/credit-card-form.css rel=stylesheet> -->
+    <style>
+      tr:nth-last-child(1) td { border-bottom: 2px solid white; }
+    </style>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn nav-btn-active fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+      <a onclick="historyBack()" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      
+      <h1>Account Opening</h1>
+      <div><!-- SPACE --></div>
+      <form id=accounts-form autocorrect="off" autocapitalize="off" speelcheck="false">
+        <div class=form__content-wrapper>
+          <h2 class=form__section-title>Account details</h2>
+          <label class=form__label>Account Type</label>
+          <select id=account-types class=form__input-select name=account-type>
+            <option class=form__input-select_option>Individual</option>
+            <option class=form__input-select_option>Joint AND</option>
+            <option class=form__input-select_option>Joint OR</option>
+            <option class=form__input-select_option>Corporation</option>
+            <option class=form__input-select_option>Partnership</option>
+            <option class=form__input-select_option>Sole Proprietorship</option>
+          </select>
+          <label class=form__label>Product Type</label>
+          <select id=product-types class=form__input-select name=product-type>
+            <option class=form__input-select_option>ATM Savings</option>
+            <option class=form__input-select_option>China Check Plus</option>
+            <option class=form__input-select_option>Passbook Savings</option>
+            <option class=form__input-select_option>US Dollar Savings</option>
+            <option class=form__input-select_option>Euro Savings</option>
+            <option class=form__input-select_option>Chinese Yuan Savings</option>
+            <option class=form__input-select_option>Money Plus Savings</option>
+            <option class=form__input-select_option>Diamond Savings</option>
+            <option class=form__input-select_option>Regular Peso Time Deposit</option>
+            <option class=form__input-select_option>US Dollar Time Deposit</option>
+          </select>
+          <label id=passbook-label class="form__label hidden">Passbook</label>
+          <div id=passbook-input class="form__radio-group hidden">
+            <div>
+              <input disabled id=with-passbook type=radio class=form__input-radio name=passbook value="w/ passbook" checked>
+              <label class=form__label-radio for=with-passbook>with Passbook</label>
+            </div>
+            <div>
+              <input disabled id=without-passbook type=radio class=form__input-radio name=passbook value="w/o passbook">
+              <label class=form__label-radio for=without-passbook>without Passbook</label>
+            </div>
+          </div>
+          <label id=account-name class=form__label>Account Name</label>
+          <div id=account-name-input class="col-3 col-1-gap">
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=account-name-last required>
+              <label class=form__label-under>Last</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=account-name-first required>
+              <label class=form__label-under>First</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=account-name-middle required>
+              <label class=form__label-under>Middle</label>
+            </div>
+          </div>
+          <label id=business-name class="form__label hidden">Business Name</label>
+          <input disabled id=business-name-input type=text class="form__input-text hidden" name=business-name>
+          <label class=form__label>Statement of Account (SOA)<br> Disposition</label>
+          <div class=form__radio-group>
+            <div>
+              <input id=no-soa type=radio class=form__input-radio name=soa-disposition value=no-soa checked>
+              <label class=form__label-radio for=no-soa>No SOA</label>
+            </div>
+            <div>
+              <input id=soa-mail type=radio class=form__input-radio name=soa-disposition value=mail>
+              <label class=form__label-radio for=soa-mail>Mail to nominated mailing address</label>
+            </div>
+            <div>
+              <input id=soa-pickup type=radio class=form__input-radio name=soa-disposition value=pick-up>
+              <label class=form__label-radio for=soa-pickup>For pick-up at Branch of Account</label>
+            </div>
+          </div>
+          <label id=mail-label class="form__label hidden">Preferred Mailing Address</label>
+          <div id=mail-input class="form__radio-group hidden">
+            <div>
+              <input disabled id=mail-perm type=radio class=form__input-radio name=mailing-address value=permanent checked>
+              <label class=form__label-radio for=mail-perm>Home / Permanent Address</label>
+            </div>
+            <div>
+              <input disabled id=mail-pres type=radio class=form__input-radio name=mailing-address value=present>
+              <label class=form__label-radio for=mail-pres>Present Address</label>
+            </div>
+            <div>
+              <input id=mail-work type=radio class=form__input-radio name=mailing-address value=work>
+              <label class=form__label-radio for=mail-work>Work / Business Address</label>
+            </div>
+          </div>
+          <h2 id=pcd-title class="form__section-title hidden">Contact Person Details</h2>
+          <label id=contact-name class="form__label hidden">Name of Contact Person</label>
+          <div id=contact-name-input class="col-3 col-1-gap hidden">
+            <div class=text-underlabel>
+              <input disabled class=form__input-text type=text name=contact-name-last required>
+              <label class=form__label-under>Last</label>
+            </div>
+            <div class=text-underlabel>
+              <input disabled class=form__input-text type=text name=contact-name-first required>
+              <label class=form__label-under>First</label>
+            </div>
+            <div class=text-underlabel>
+              <input disabled class=form__input-text type=text name=contact-name-middle required>
+              <label class=form__label-under>Middle</label>
+            </div>
+          </div>
+          <label id=contact-position class="form__label hidden">Designation/Position/Title</label>
+          <input disabled id=contact-position-input type=text class="form__input-text hidden" name=contact-person-position required>
+          <label id=contact-no class="form__label hidden">Contact No.</label>
+          <input disabled id=contact-no-input type=tel class="form__input-tel hidden" name=contact-person-no required>
+          <label id=contact-email class="form__label hidden">Email Address</label>
+          <input disabled id=contact-email-input type=email class="form__input-tel hidden" name=contact-person-email placeholder="example@email.com" required>
+          <h2 id=sig-title class="form__section-title hidden">Signatories</h2>
+          <table id=sig-table class="form__table hidden">
+            <tbody>
+              <tr class=form__table_header>
+                <th class=form__table_th>Name</th>
+                <th class=form__table_th></th>
+              </tr>
+            </tbody>
+          <tbody id=sig-table-body></tbody>
+        </table>
+      </div>
+      <div class=form__button-wrapper>
+        <button type=button class="form__button form__button-secondary" onclick="redirect('index.html')">Discard</button>
+        <button type=submit class="form__button form__button-primary">Submit Account Information</button>
+      </div>
+    </form>
+    <div id=error-modal class="custom-scrollbar modal hidden">
+      <div class="modal__content-error">
+        <h2 class=form__section-title>Error saving account information</h2>
+        <p class=modal__error-text id=error-text></p>
+        <button style="justify-self: right;" class=modal__button type=button onclick="closeErrorModal()">Close</button>
+      </div>
+    </div>
+    <div id=modal class="custom-scrollbar modal hidden">
+      <div class="modal__content-verify">
+        <h2 class=form__section-title>Account Confirmation</h2>
+        <p class=modal__verify-text>Please confirm the following information below.</p>
+        <label class=form__label>Account Type</label>
+        <label id=ver-account-type></label>
+        <label class=form__label>Product Type</label>
+        <label id=ver-product-type></label>
+        <label id=ver-passbook-label class="form__label hidden">Passbook</label>
+        <label id=ver-passbook class=hidden></label>
+        <label id=ver-account-name-label class="form__label">Account Name</label>
+        <label id=ver-account-name></label>
+        <label id=ver-business-name-label class="form__label hidden">Business Name</label>
+        <label id=ver-business-name class=hidden></label>
+        <label class=form__label>SOA Disposition</label>
+        <label id=ver-soa></label>
+        <label id=ver-mailing-label class="form__label hidden">Mailing Address</label>
+        <label id=ver-mailing class=hidden></label>
+        <h3 id=ver-contact-person-title class="form__section-title hidden">Contact Person Details</h3>
+        <label id=ver-contact-person-name-label class="form__label hidden">Name</label>
+        <label id=ver-contact-person-name class=hidden></label>
+        <label id=ver-contact-person-position-label class="form__label hidden">Designation/Position/Title</label>
+        <label id=ver-contact-person-position class=hidden></label>
+        <label id=ver-contact-person-no-label class="form__label hidden">Contact No.</label>
+        <label id=ver-contact-person-no class=hidden></label>
+        <label id=ver-contact-person-email-label class="form__label hidden">Email Address</label>
+        <label id=ver-contact-person-email class=hidden></label>
+        <h3 id=ver-sig-title class="form__section-title hidden">Signatories</h3>
+        <table id=ver-sig-table class="form__table hidden">
+          <tbody>
+            <tr class=form__table_header>
+              <th class=form__table_th>Name</th>
+            </tr>
+          </tbody>
+          <tbody id=ver-sig-table-body>
+          </tbody>
+        </table>
+        <div class=modal__button-wrapper>
+          <button class=modal__button id=ver-cancel>Cancel</button>
+          <button class=modal__button id=ver-submit>Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src=../js/global.js></script>
+  <script src=../js/navigation.js></script>
+  <script src=../js/accounts/accounts.js></script>
+  <script src=../js/accounts/accounts-form.js></script>
+</body>
+</html>

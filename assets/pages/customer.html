@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>customer-creation</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+  </head>
+  <body class=custom-scrollbar id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn nav-btn-active fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class="body">
+      <h2 id=return-btn>
+      <a onclick="redirect('index.html')" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      <h1>Customer Information Form</h1>
+      <div><!-- SPACE --></div>
+      <form class=form id=customer-form autocorrect="off" autocapitalize="off" spellcheck="false">
+        <div class=form__content-wrapper>
+          <h2 class=form__section-title>Personal Information</h2>
+          <!-- NAME -->
+          <label class=form__label>Name</label>
+          <div class="col-3 col-1-gap">
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=name-last required autofocus>
+              <label class=form__label-under>Last</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=name-first required>
+              <label class=form__label-under>First</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=name-middle required>
+              <label class=form__label-under>Middle</label>
+            </div>
+          </div>
+          <!-- GENDER -->
+          <label class=form__label>Gender</label>
+          <div class=form__radio-group>
+            <label>
+              <input id=gender-m class=form__input-radio type=radio name=gender value=Male checked>
+              <label class=form__label-radio for=gender-m>Male</label>
+            </label>
+            <label>
+              <input id=gender-f type=radio class=form__input-radio name=gender value=Female>
+              <label class=form__label-radio for=gender-f>Female</label>
+            </label>
+          </div>
+          <!-- BIRTH -->
+          <label class=form__label>Birth</label>
+          <div class="col-3 col-1-gap">
+            <div class=text-underlabel>
+              <input class=form__input-date type=date name=birth-date required>
+              <label class=form__label-under>Birth Date</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=birth-place required>
+              <label class=form__label-under>Birth Place</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=birth-country value=Philippines required>
+              <label class=form__label-under>Birth Country</label>
+            </div>
+          </div>
+          <!-- NATIONALITY -->
+          <label class=form__label>Nationality</label>
+          <div class=form__radio-group>
+            <label>
+              <input id=fil-nationality class=form__input-radio type=radio name=nationality value=Filipino checked>
+              <label class=form__label-radio for=fil-nationality>Filipino</label>
+            </label>
+            <label id=other-nationality class=form__label-radio>
+              <input id=other-nation-radio class=form__input-radio type=radio name=nationality>
+              <input id=other-nation-input class="form__input-text form__label-radio form__input-fade-bottom" type=text placeholder="Other" required disabled>
+            </label>
+          </div>
+          <!-- CIVILSTATUS -->
+          <label class=form__label>Civil Status</label>
+          <select class=form__input-select name=civil-status>
+            <option class=form__input-select_option>Single</option>
+            <option class=form__input-select_option>Married</option>
+            <option class=form__input-select_option>Separated</option>
+            <option class=form__input-select_option>Divorced</option>
+            <option class=form__input-select_option>Widowed</option>
+          </select>
+          <!-- MOTHER -->
+          <label class=form__label>Mother's Maiden Name</label>
+          <div class="col-3 col-1-gap">
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=mother-last required spellcheck="off">
+              <label class=form__label-under>Last</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=mother-first required spellcheck="off">
+              <label class=form__label-under>First</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=mother-middle required spellcheck="off">
+              <label class=form__label-under>Middle</label>
+            </div>
+          </div>
+          <h2 class=form__section-title>Contact Information</h2>
+          <!-- PERMANENTADD -->
+          <label class=form__label>Permanent Address</label>
+          <div class="col-6-auto col-1-gap">
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-no type=text>
+              <label class=form__label-under>Unit/Building/House No.</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-street type=text>
+              <label class=form__label-under>Street Name/No.</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-barangay type=text>
+              <label class=form__label-under>Subdivision/Village/Barangay</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-city type=text>
+              <label class=form__label-under>City/Municipality</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-province type=text>
+              <label class=form__label-under>Province</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text required name=home-address-zip type=text size="5">
+              <label class=form__label-under>Zip</label>
+            </div>
+          </div>
+          <!-- PRESENTADD -->
+          <label class=form__label>Present Address</label>
+          <div class="col-1 row-1-gap">
+            <div>
+              <input type=checkbox class=form__input-check id=same-add>
+              <label class=form__label-check for=same-add>Same as Permanent Address</label>
+            </div>
+            <div class="col-6-auto col-1-gap">
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-no type=text>
+                <label class=form__label-under>Unit/Building/House No.</label>
+              </div>
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-street type=text>
+                <label class=form__label-under>Street Name/No.</label>
+              </div>
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-barangay type=text>
+                <label class=form__label-under>Subdivision/Village/Barangay</label>
+              </div>
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-city type=text>
+                <label class=form__label-under>City/Municipality</label>
+              </div>
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-province type=text>
+                <label class=form__label-under>Province</label>
+              </div>
+              <div class=text-underlabel>
+                <input class=form__input-text required name=present-address-zip type=text size="5">
+                <label class=form__label-under>Zip</label>
+              </div>
+            </div>
+          </div>
+          <!-- MOBILEPHONE -->
+          <label class=form__label>Mobile Phone No.</label>
+          <input class=form__input-tel type=tel name=mobile-no required>
+          <!-- HOMEPHONE -->
+          <label class=form__label>Home Phone No.</label>
+          <input class=form__input-tel type=tel name=home-no required>
+          <!-- EMAILADD -->
+          <label class=form__label>Email Address</label>
+          <input class=form__input-email type=email name=email-address placeholder=example@mail.com required>
+          <h2 class=form__section-title>Employment Information</h2>
+          <!-- EMPLOYMENT -->
+          <label class=form__label>Employment Type</label>
+          <div class="col-2 col-1-gap">
+            <select class=form__input-select id=employments name=employment-type required>
+              <option class=form__input-select_option>Employed</option>
+              <option class=form__input-select_option>Self-Employed (Business)</option>
+              <option class=form__input-select_option>Self-Employed (Professional)</option>
+              <option class=form__input-select_option>Retired</option>
+              <option class=form__input-select_option>Not Applicable</option>
+            </select>
+            <label class="col-a-1 items-center col-05-gap">
+              <input id=other-employment type=checkbox>
+              <input id=other-emp-input class=form__input-text type=text name=employment-type placeholder=Other required disabled>
+            </label>
+          </div>
+          <!-- GMI -->
+          <label class=form__label>Gross Monthly Income</label>
+          <select class=form__input-select name=gmi required>
+            <option class=form__input-select_option>Below Php 10,000</option>
+            <option class=form__input-select_option>Php 10,000 - 19,000</option>
+            <option class=form__input-select_option>Php 20,000 - 49,000</option>
+            <option class=form__input-select_option>Php 50,000 - 99,999</option>
+            <option class=form__input-select_option>Php 100,000 and above</option>
+          </select>
+          <!-- INDUSTRY -->
+          <label class=form__label>Industry</label>
+          <div class="col-2 col-1-gap">
+            <select class=form__input-select id=industries name=employment-industry required>
+              <option class=form__input-select_option>Agriculture / Fishing</option>
+              <option class=form__input-select_option>Admin / Support</option>
+              <option class=form__input-select_option>Construction</option>
+              <option class=form__input-select_option>Education</option>
+              <option class=form__input-select_option>Financial / Insurance</option>
+              <option class=form__input-select_option>IT / Communication</option>
+              <option class=form__input-select_option>Manufacturing</option>
+              <option class=form__input-select_option>Mining / Quarying</option>
+              <option class=form__input-select_option>Professional Service</option>
+              <option class=form__input-select_option>Transportation / Storage</option>
+              <option class=form__input-select_option>Wholesale / Retail</option>
+            </select>
+            <label class="col-a-1 items-center col-05-gap">
+              <input id=other-industry type=checkbox>
+              <input id=other-ind-input class=form__input-text type=text name=employment-industry placeholder=Other required disabled>
+            </label>
+          </div>
+          <!-- EMPLOYMENTNAME -->
+          <label class=form__label>Name</label>
+          <div class=text-underlabel>
+            <input class=form__input-text type=text name=employment-name required>
+            <label class=form__label-under>Employer/Business Name</label>
+          </div>
+          <!-- EMPLOYMENTPOSITION -->
+          <label class=form__label>Position</label>
+          <div class=text-underlabel>
+            <input class=form__input-text type=text name=employment-position required>
+            <label class=form__label-under>Occupation/Designation/Position/Title</label>
+          </div>
+          <!-- EMPLOYMENTCONTACT -->
+          <label class=form__label>Contact</label>
+          <div class=text-underlabel>
+            <input class=form__input-tel type=tel name=employment-contact required>
+            <label class=form__label-under>Employer/Business Contact No.</label>
+          </div>
+          <!-- EMPLOYMENTADDRESS -->
+          <label class=form__label>Address</label>
+          <div class="col-6-auto col-1-gap">
+            <div class=text-underlabel>
+              <input required name=employment-address-no class=form__input-text type=text>
+              <label class=form__label-under>Unit/Building/House No.</label>
+            </div>
+            <div class=text-underlabel>
+              <input required name=employment-address-street class=form__input-text type=text>
+              <label class=form__label-under>Street Name/No.</label>
+            </div>
+            <div class=text-underlabel>
+              <input required name=employment-address-barangay class=form__input-text type=text>
+              <label class=form__label-under>Subdivision/Village/Barangay</label>
+            </div>
+            <div class=text-underlabel>
+              <input required name=employment-address-city class=form__input-text type=text>
+              <label class=form__label-under>City/Municipality</label>
+            </div>
+            <div class=text-underlabel>
+              <input required name=employment-address-province class=form__input-text type=text>
+              <label class=form__label-under>Province</label>
+            </div>
+            <div class=text-underlabel>
+              <input required name=employment-address-zip class=form__input-text type=text size="5">
+              <label class=form__label-under>Zip</label>
+            </div>
+          </div>
+          <h2 class=form__section-title>Other Information</h2>
+          <!-- RESIDENCY -->
+          <label class=form__label>Residency</label>
+          <div class=form__radio-group>
+            <label>
+              <input id=resident class=form__input-radio type=radio name=residency value=Resident checked>
+              <label class=form__label-radio for=resident>Resident</label>
+            </label>
+            <label>
+              <input id=non-resident class=form__input-radio type=radio name=residency value=Resident>
+              <label class=form__label-radio for=non-resident>Non-Resident</label>
+            </label>
+          </div>
+          <label class=form__label>Mailing Address</label>
+          <div class=form__radio-group>
+            <label>
+              <input id=mail-home class=form__input-radio type=radio name=mailing-address value="permanent" checked>
+              <label class=form__label-radio for=mail-home>Home / Permanent Address</label>
+            </label>
+            <label>
+              <input id=mail-pres class=form__input-radio type=radio name=mailing-address value="present">
+              <label class=form__label-radio for=mail-pres>Present Address</label>
+            </label>
+            <label>
+              <input id=mail-work class=form__input-radio type=radio name=mailing-address value="work">
+              <label class=form__label-radio for=mail-work>Work / Business Address</label>
+            </label>
+          </div>
+        </div>
+        <div class=form__button-wrapper>
+          <button class="form__button form__button-secondary" type=button onclick="redirect('index.html')">Discard</button>
+          <button class="form__button form__button-primary" type=submit id=submit>Submit Customer Information</button>
+        </div>
+      </form>
+      <div id=error-modal class="custom-scrollbar modal hidden">
+        <div class="modal__content-error">
+          <h2 class=form__section-title>Error saving customer information</h2>
+          <p class=modal__error-text id=error-text></p>
+          <button style="justify-self: right;" class=modal__button type=button onclick="closeErrorModal()">Close</button>
+        </div>
+      </div>
+      <div id=modal class="modal hidden custom-scrollbar">
+        <div class=modal__content-verify>
+          <h2 class=modal__verify-title>Information Review</h2>
+          <p class=modal__verify-text>Review the following information below. If there are no errors, click submit, otherwise click cancel to return to the form.</p>
+          <label class=form__label>Name</label>
+          <label id=ver-name></label>
+          <label class=form__label>Gender</label>
+          <label id=ver-gender></label>
+          <label class=form__label>Birth Date</label>
+          <label id=ver-birth-date></label>
+          <label class=form__label>Birth Place</label>
+          <label id=ver-birth-place></label>
+          <label class=form__label>Nationality</label>
+          <label id=ver-nationality></label>
+          <label class=form__label>Mother's Maiden Name</label>
+          <label id=ver-mother-name></label>
+          <label class=form__label>Permanent Address</label>
+          <label id=ver-home-add></label>
+          <label class=form__label>Present Address</label>
+          <label id=ver-pres-add></label>
+          <label class=form__label>Mobile No</label>
+          <label id=ver-mobile-no></label>
+          <label class=form__label>Home Phone No</label>
+          <label id=ver-home-no></label>
+          <label class=form__label>Email Address</label>
+          <label id=ver-email-add></label>
+          <label class=form__label>Employment Type</label>
+          <label id=ver-emp-type></label>
+          <label class=form__label>Gross Monthly Income (GMI)</label>
+          <label id=ver-gmi></label>
+          <label class=form__label>Employment Industry</label>
+          <label id=ver-emp-industry></label>
+          <label class=form__label>Employment Name</label>
+          <label id=ver-emp-name></label>
+          <label class=form__label>Employment Position</label>
+          <label id=ver-emp-position></label>
+          <label class=form__label>Employment Contact</label>
+          <label id=ver-emp-contact></label>
+          <label class=form__label>Employment Address</label>
+          <label id=ver-emp-add></label>
+          <label class=form__label>Residency</label>
+          <label id=ver-residency></label>
+          <label class=form__label>Mailing Address</label>
+          <label id=ver-mail-add></label>
+          <div class=modal__button-wrapper>
+            <button class=modal__button id=ver-cancel>Cancel</button>
+            <button class=modal__button id=ver-submit>Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/customer/customer.js></script>
+    <script src=../js/customer/c-customer.js></script>
+  </body>
+</html>

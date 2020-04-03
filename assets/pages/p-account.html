@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>account-info-view</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/p-account.css rel=stylesheet>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn nav-btn-active fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+      <a onclick="historyBack()" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      <h1>Account Information</h1>
+      <div><!-- SPACE --></div>
+      <div class=account-wrapper>
+        <div class="account card">
+          <div class=account__no-wrapper>
+            <i class="fas fa-piggy-bank"></i>
+            <label id=account-no></label>
+          </div>
+          <label class=account__date id=date-open></label>
+          <label class=account__product id=product-type></label>
+          <label class=account__type id=account-type></label>
+          <label class=account__currency id=currency></label>
+          <div class=account__soa-wrapper>
+            <label class=account__label>Statement Of Account (SOA) Delivery</label>
+            <label id=soa></label>
+          </div>
+        </div>
+        <div id=business-wrapper class="business hidden card">
+          <label class="business__name" id=business-name></label>
+          <div id=contact-wrapper class="contact">
+            <h2 class=contact__title>Contact Person</h2>
+            <label class=account__label>Name</label>
+            <label id=contact-name></label>
+            <label class=account__label>Position</label>
+            <label id=contact-position></label>
+            <label class=account__label>Contact Number</label>
+            <label id=contact-number></label>
+            <label class=account__label>E-Mail Address</label>
+            <label id=contact-email></label>
+          </div>
+        </div>
+        <h2 id=account-holder-title class=holder__title>Account Holders</h2>
+        <div class=holder-wrapper id=holder-wrapper></div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/accounts/p-account.js></script>
+  </body>
+</html>

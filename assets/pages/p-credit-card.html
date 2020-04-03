@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>credit-card-info-view</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/p-credit-card.css rel=stylesheet>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn nav-btn-active fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+        <a onclick="historyBack()" class=return-btn>
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      </h2>
+      
+      <h1>Credit Card Information</h1>
+      
+      <div><!-- SPACE --></div>
+
+      <div class=card-wrapper>
+        <div class="credit-card card">
+          <label class=card__exp id=card-exp></label>
+          <label class=card__no id=card-no></label>
+          <label class=card__type id=card-type></label>
+          <label class=card__name id=card-name></label>
+          <div class=card__details>
+            <label class=card__label>Credit Limit</label>
+            <label id=card-limit></label>
+            <label class=card__label>Statement of Account Delivery Address</label>
+            <label id=card-mail></label>
+          </div>
+        </div>
+
+        <div id=customer class="customer card">
+          <h2 class=customer__title>Card Holder</h2>
+          <label class=customer__name id=customer-name></label>
+          <label class=customer__nation id=customer-nation></label>
+          <label class=card__label>Birth</label>
+          <label id=customer-birth></label>
+          <label class=card__label>Civil Status</label>
+          <label id=customer-civil></label>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/credit-card/p-credit-card.js></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>customer-info-view</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn nav-btn-active fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+      <a onclick="historyBack()" class=return-btn>
+        <i class="fas fa-arrow-left"></i>
+      </a>
+      </h2>
+      
+      <h1>Credit Card Application</h1>
+      <div><!-- SPACE --></div>
+      <form id=credit-card-form autocorrect="off" autocapitalize="off" speelcheck="false">
+        <div class=form__content-wrapper>
+          <h2 class=form__section-title>Credit Card Information</h2>
+          <label class=form__label>Customer Name</label>
+          <div class="col-3 col-1-gap">
+            <div class=text-underlabel>
+              <input autofocus class=form__input-text type=text name=card-name-last required>
+              <label class=form__label-under>Last</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=card-name-first required>
+              <label class=form__label-under>First</label>
+            </div>
+            <div class=text-underlabel>
+              <input class=form__input-text type=text name=card-name-middle required>
+              <label class=form__label-under>Middle</label>
+            </div>
+          </div>
+          <label class=form__label>Preferred Card Type</label>
+          <select class=form__input-select name=card-type>
+            <option class=form__input-select_option>Prime</option>
+            <option class=form__input-select_option>Platinum</option>
+            <option class=form__input-select_option>World</option>
+          </select>
+          <label class=form__label>Name to Appear on Card</label>
+          <div class=text-underlabel>
+            <input class=form__input-text type=text maxlength="22" name=card-name required>
+            <label class=form__label-under>Max. 22 Characters</label>
+          </div>
+          <h2 class=form__section-title>Statement of Account Information</h2>
+          <label class=form__label>Credit Card Statement of Account</label>
+          <div class=form__radio-group>
+            <label class=aa-text>
+              <input  class=form__input-radio id=soa-accept type=radio name=credit-soa value="E-Mail" checked>
+              I understand that the default form of the Billing Statement is electronic; hence I agree<br>
+              to receive them via e-mail, in support of China Bank's efforts to reduce paper consumption.<br>
+              Please use my e-mail address in my Customer Information File (CIF).
+            </label>
+            <label class=aa-text>
+              <input class=form__input-radio id=soa-reject type=radio name=credit-soa value="Delivery">
+              I regret to inform China Bank that I don't have an e-mail address; therefore I need a hard <br>
+              copy of my Credit Card Statement of Account to be sent to the Credit Card Delivery Address, <br>
+              selected below.
+            </label>
+          </div>
+          <label id=deliver-label class="form__label hidden">Delivery Address</label>
+          <div id=deliver-value class="form__radio-group hidden">
+            <label>
+              <input id=pres class=form__input-radio type=radio name=delivery-add value="Present" checked>
+              <label class=form__label-radio for=pres>Present Home Address</label>
+            </label>
+            <label>
+              <input id=office class=form__input-radio type=radio name=delivery-add value=Office>
+              <label class=form__label-radio for=office>Office Address</label>
+            </label>
+          </div>
+        </div>
+        <div class=form__button-wrapper>
+          <button type=button class="form__button form__button-secondary" onclick="redirect('index.html')">Discard</button>
+          <button type=submit class="form__button form__button-primary">Submit Credit Card Information</button>
+        </div>
+      </form>
+      <div id=error-modal class="custom-scrollbar modal hidden">
+        <div class="modal__content-error">
+          <h2 class=form__section-title>Error saving credit card information</h2>
+          <p class=modal__error-text id=error-text></p>
+          <button style="justify-self: right;" class=modal__button type=button onclick="closeErrorModal()">Close</button>
+        </div>
+      </div>
+      <div id=modal class="custom-scrollbar modal hidden">
+        <div class="modal__content-verify">
+          <h2 class=form__section-title>Credit Card Confirmation</h2>
+          <p class=modal__verify-text>
+            Please review the information given below. Click "Submit" to save the credit card information. If incorrect data was found, click "Cancel" to return to the form.
+          </p>
+          <label class=form__label>Account Name</label>
+          <label id=ver-name></label>
+          <label class=form__label>Preferred Card Type</label>
+          <label id=ver-card-type></label>
+          <label class=form__label>Card Name</label>
+          <label id=ver-card-name></label>
+          <label class=form__label>SOA Disposition</label>
+          <label id=ver-card-soa></label>
+          <label id=ver-card-deliver-label class="hidden form__label">Delivery Address</label>
+          <label id=ver-card-deliver class="hidden"></label>
+          <div class=modal__button-wrapper>
+            <button class=modal__button id=ver-cancel>Cancel</button>
+            <button class=modal__button id=ver-submit>Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/credit-card/credit-card-forms.js></script>
+    <script src=../js/credit-card/credit-card.js></script>
+  </body>
+</html>

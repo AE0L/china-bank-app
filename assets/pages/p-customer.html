@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>customer-info-view</title>
+    <link href=../css/colors.css rel=stylesheet>
+    <link href=../css/fontawesome.min.css rel=stylesheet>
+    <link href=../css/solid.min.css rel=stylesheet>
+    <link href=../css/navigation.css rel=stylesheet>
+    <link href=../css/global-forms.css rel=stylesheet>
+    <link href=../css/p-customer.css rel=stylesheet>
+  </head>
+  <body class="custom-scrollbar" id=main-body>
+    <div id=side-nav class=side-nav>
+      <div id=logo-cont>
+        <img draggable="false" onclick="redirect('index.html')" id=logo src=../logo.png width=50 height=50>
+      </div>
+      <div class=nav-btn-cont>
+        <i id=nav-cstm class="nav-btn nav-btn-active fas fa-user"></i>
+        <i id=nav-trns class="nav-btn fas fa-receipt"></i>
+        <i id=nav-acct class="nav-btn fas fa-piggy-bank"></i>
+        <i id=nav-crdt class="nav-btn fas fa-credit-card"></i>
+      </div>
+    </div>
+    <div id=submenu-nav class=submenu-nav>
+      <div id=submenu-space-1></div>
+      <div id=submenu-cont class=submenu-cont></div>
+    </div>
+    <div class=body>
+      <h2 id=return-btn>
+        <a onclick="historyBack()" class=return-btn>
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      </h2>
+      
+      <h1>Customer Information</h1>
+      
+      <div><!-- SPACE --></div>
+
+      <div class=actions>
+        <button id=edit-btn type=button class=actions__button>Edit</button>
+      </div>
+
+      <div><!-- SPACE --></div>
+
+      <div class=customer-wrapper>
+        <div class="cif card">
+          <div class=cif__id-wrapper>
+            <i class="fas fa-user"></i>
+            <label id=cif-id></label>
+          </div>
+
+          <div class=cif__created>
+            <label id=cif-created></label>
+          </div>
+
+          <div class=cif__name>
+            <label id=cif-name></label>
+          </div>
+
+          <div class=cif__nation>
+            <label id=cif-nation></label>
+          </div>
+
+          <div class=cif__details>
+            <label class=cif__details_label>Civil Status</label>
+            <label class=cif__details_value id=cif-civil></label>
+
+            <label class=cif__details_label>Birth</label>
+            <label class=cif__details_value id=cif-birth></label>
+
+            <label class=cif__details_label>Mother</label>
+            <label class=cif__details_value id=cif-mother></label>
+
+            <label class=cif__details_label>Residency</label>
+            <label class=cif__details_value id=cif-residency></label>
+          </div>
+        </div>
+
+        <div class="contact card">
+          <h2 class=contact__title>Contact Details</h2>
+
+          <label class=contact__label>Mobile No.</label>
+          <label class=contact_value id=contact-mobile></label>
+
+          <label class=contact__label>Phone No.</label>
+          <label class=contact_value id=contact-phone></label>
+
+          <label class=contact__label>Email Address</label>
+          <label class=contact_value id=contact-email></label>
+
+          <label class=contact__label>Mailing Address</label>
+          <label class=contact_value id=contact-mailing></label>
+        </div>
+
+        <div class="add card">
+          <h2 class=add__title>Address Details</h2>
+          <label class=add__label>Permanent Address</label>
+          <label class=add_value id=per-add></label>
+
+          <label class=add__label>Present Address</label>
+          <label class=add_value id=pre-add></label>
+        </div>
+
+        <div class="emp card">
+          <h2 class=emp__title>Employment Details</h2>
+
+          <label class=emp__label>Gross Monthly Income (GMI)</label>
+          <label class=emp_value id=emp-gmi></label>
+
+          <label class=emp__label>Employment Type</label>
+          <label class=emp_value id=emp-type></label>
+
+          <label class=emp__label>Employment/Business Industry</label>
+          <label class=emp_value id=emp-industry></label>
+
+          <label class=emp__label>Employment/Business Name</label>
+          <label class=emp_value id=emp-name></label>
+
+          <label class=emp__label>Position/Designation/Title/Occupation</label>
+          <label class=emp_value id=emp-position></label>
+
+          <label class=emp__label>Employment/Business Contact</label>
+          <label class=emp_value id=emp-contact></label>
+
+          <label class=emp__label>Employment/Business Address</label>
+          <label class=emp_value id=emp-add></label>
+        </div>
+      </div>
+    </div>
+    <script src=../js/global.js></script>
+    <script src=../js/navigation.js></script>
+    <script src=../js/customer/p-customer.js></script>
+  </body>
+</html>
