@@ -47,7 +47,6 @@ public class ChinaBank extends BrowserFrame {
 
       settings.windowless_rendering_enabled = false;
       settings.log_severity                 = CefSettings.LogSeverity.LOGSEVERITY_ERROR;
-      settings.remote_debugging_port        = 8080;
 
       app = CefApp.getInstance(args, settings);
     } else {
@@ -74,7 +73,9 @@ public class ChinaBank extends BrowserFrame {
 
       @Override
       public void run() {
+        Logger.log("Closing program");
         Database.getInstance().close();
+        app.dispose();
       }
     }));
   }

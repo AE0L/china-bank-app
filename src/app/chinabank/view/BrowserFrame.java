@@ -1,8 +1,6 @@
 package app.chinabank.view;
 
 import java.awt.BorderLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import org.cef.browser.CefBrowser;
 
@@ -20,15 +18,11 @@ public class BrowserFrame extends JFrame {
     super("China Bank Application");
 
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+  }
 
-    addWindowListener(new WindowAdapter() {
-
-      @Override
-      public void windowClosing(WindowEvent e) {
-        dispose();
-        browser.close(true);
-      }
-    });
+  public void close() {
+    this.dispose();
+    this.browser.doClose();
   }
 
   /**
